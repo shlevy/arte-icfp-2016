@@ -1,0 +1,1 @@
+An experience report under preparation for ICFP 2016 about the process of developing a real time neural decoding system [ArtE](http://github.com/imalsogreg/arte-ephys) using Haskell, focusing on working with STM.
