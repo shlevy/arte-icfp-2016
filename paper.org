@@ -2,6 +2,23 @@
 * Abstract
 * Introduction
 * P1
+** Introduce the problem domain single-trode
+** High-level overview of the final model
+** Intuitive, iterative process
+Example of an iteration?
 * P2
+** Move to multiple streams: Need to develop a parallelism story
+** STM let us write it naturally
+*** Let us think in small parts without needing to keep track of the whole
 * P3
+** Performance issues with naive approach
+*** Memory usage
+*** Low framerate
+*** Thread starvation?
+** Diagnosis:
+*** Growing amount of heap space taken by specific values without bound
+*** Suspected laziness issues
+** Minimum machine performance required to avoid stuttering as GC catches up
+** Still slow degredation of performance over time
+** Not sure exactly what was happening or why the fixes worked
 * Conclusion
