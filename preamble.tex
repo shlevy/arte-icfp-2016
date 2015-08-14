@@ -1,0 +1,38 @@
+\usepackage{color}
+
+\usepackage{fontspec}
+
+\usepackage{setspace}
+
+\usepackage{graphicx}
+
+\definecolor{grey}{rgb}{0.5,0.5,0.5}
+
+\usepackage{titling}
+
+
+\usepackage{titlesec}
+\newcommand*{\justifyheading}{\raggedleft}
+\titleformat{\chapter}[display]
+  {\normalfont\huge\bfseries\justifyheading\hrule\color{grey}}{\chaptertitlename\ \thechapter}
+  {20pt}{\Huge}
+\titleformat{\section}
+  {\normalfont\Large\bfseries\justifyheading\hrule\color{grey}}{\thesection}{1em}{}
+
+
+\usepackage{blindtext}
+\usepackage{textcomp}
+
+\makeatletter
+\let\old@rule\@rule
+\def\@rule[#1]#2#3{\textcolor{blue}{\old@rule[#1]{#2}{#3}}}
+\makeatother
+
+\let\stdsection\section
+\renewcommand\section{\newpage\stdsection}
+
+
+
+
+\doublespacing
+
