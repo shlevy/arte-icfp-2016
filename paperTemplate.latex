@@ -143,40 +143,6 @@ $header-includes$
 $endfor$
 \begin{document}
 \pagenumbering{roman}
-\setcounter{page}{0}
-\begin{titlepage}
-    \begin{center}
-        \vspace*{1cm}
-        
-        \Huge
-        \textbf{Timing and hippocampal information processing}
-        
-        \vspace{0.5cm}
-        \LARGE
-        
-        
-        \vspace{1.5cm}
-        
-        \textbf{Gregory Hale}
-        
-        \vfill
-        
-        A thesis presented for the degree of\\
-        Doctor of Philosophy
-        
-        \vspace{0.8cm}
-        
-
-        
-        \Large
-        Department of Brain and Cognitive Sciences\\
-        Massachusetts Institute of Technology\\
-        USA\\
-        January 12, 2015
-        
-    \end{center}
-\end{titlepage}
-
 
 $if(title)$
 \maketitle
