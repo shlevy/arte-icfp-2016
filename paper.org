@@ -1,8 +1,8 @@
 * Title
 * Abstract
 * Introduction
-  
-Functional programming techniques greatly improve the likelihood of a codebase working properly the first time and across refactorings - a fact recognized by both researchers and practicioners. Claims that functional programming can improve the experience of refactoring concurrent programs with tight timing requirements tend to be more common among academics; it remains to be seen whether practicitioners can realize the promised benefits. After adopting GHC Haskell as both implementation language and runtime for our real-time neural data processing system, we can give answer the question with a definitive yes.
+
+It is acknowledged amongst researchers and practicioners alike that functional programming techniques improve both the initial quality of a codebase and process of iterative refactoring and improvement over time [citation needed]. Less generally accepted are claims that functional programming has these same benefits for the specific case of concurrent programs with tight timing requirements; researchers tend to think so [citation needed], but the jury appears to be out for practitioners [citation needed, if possible]. Our experiences using GHC Haskell and particularly its STM [do we need to expand this acronym?] paradigm have led us to definitely vote yes on the question.
 
 
 
