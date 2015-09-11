@@ -2,8 +2,16 @@
 * Abstract
 * Introduction
   
-Functional programming techniques greatly improve the likelihood of a codebase working properly the first time and across refactorings - a fact recognized by both researchers and practicioners. Claims that functional programming can improve the experience of refactoring concurrent programs with tight timing requirements tend to be more common among academics; it remains to be seen whether practicitioners can realize the promised benefits. After adopting GHC Haskell as both implementation language and runtime for our real-time neural data processing system, we can give answer the question with a definitive yes.
+Functional programming techniques greatly improve the likelihood of a codebase working properly the first time and across refactorings - a fact recognized by both researchers and practicioners. 
+Claims that functional programming can improve the experience of refactoring concurrent programs with tight timing requirements tend to be more common among academics; it remains to be seen whether practicitioners can realize the promised benefits.
+After adopting GHC Haskell as both implementation language and runtime for our real-time neural data processing system, we can give answer the question with a definitive yes.
 
+Our application involves processing streams of event data from a region of the rat brain known as the 'Hippocampus', while rats are performing a spatial navigation task.
+We use this data to build models of the neural representation of locations on the track in real time, and then test this model against new incoming data to produce an estimate of the rat's location according only to the brain.
+Empirically, the brain goes between two modes: when the rat is running the brain faithfully encodes its current position, but during pauses to collect food, hippocampal neurons collectively replay previously experienced trajectories along the track. We are interested in detecting these replay phenomena in real time so that we may encourage the rat to produce more or less of them, in order to measure their importance in learning about the maze.
+
+The main contribution of this paper is a confirmation that GHC's runtime system and composable concurrency abstractions lend the same sorts of benefits to exploratory concurrent programming that Haskell language features lend to single-threaded programming, and that the research advances in these areas are immediately available to practicioners and scientists like those in our research group.
+We also discuss the our interaction as users with the pitfalls of STM that were laid out in the paper. Unencumbered by knowledge of STM's inner workings, we make several suggestions for improvements to STM's user interface. 
 
 
 * P1
