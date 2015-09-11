@@ -1,6 +1,11 @@
 * Title
 * Abstract
 * Introduction
+  
+Functional programming techniques greatly improve the likelihood of a codebase working properly the first time and across refactorings - a fact recognized by both researchers and practicioners. Claims that functional programming can improve the experience of refactoring concurrent programs with tight timing requirements tend to be more common among academics; it remains to be seen whether practicitioners can realize the promised benefits. After adopting GHC Haskell as both implementation language and runtime for our real-time neural data processing system, we can give answer the question with a definitive yes.
+
+
+
 * P1
 ** Introduce the problem domain single-trode
 ** High-level overview of the final model
