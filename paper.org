@@ -2,12 +2,19 @@
 * Abstract
 * Introduction
 
-It is acknowledged amongst researchers and practicioners alike that functional programming techniques improve both the initial quality of a codebase and process of iterative refactoring and improvement over time [citation needed]. Less generally accepted are claims that functional programming has these same benefits for the specific case of concurrent programs with tight timing requirements; researchers tend to think so [citation needed], but the jury appears to be out for practitioners [citation needed, if possible]. Our experiences using GHC Haskell and particularly its STM [do we need to expand this acronym?] paradigm have led us to definitely vote yes on the question.
+It is acknowledged amongst researchers and practicioners alike that functional programming techniques improve both the initial quality of a codebase and process of iterative refactoring and improvement over time [citation needed]. 
+Less generally accepted are claims that functional programming has these same benefits for the specific case of concurrent programs with tight timing requirements; researchers tend to think so [citation needed], but the jury appears to be out for practitioners [citation needed, if possible].
+Our experiences using GHC Haskell and particularly Software Transactional Memory [@marlow2009runtime]  paradigm have led us to definitely vote yes on the question.
+
+We used Haskell to build a real-time neural decoding system for inferring a rat's location in a maze from the activity of neurons in a brain area called the hippocampus.
+Our experiments require producing position estimates 50 times per second and pooling of data from 32 simultaneously recording electrodes.
+Being unsure about what architecture our system would finally take, specifically with regard to concurrency, we preemptively designed much of the computation to run in STM.
+In the course of refactoring our system, we found that STM provided a level of flexibility and safety reminiscent of the role usually played by strong static types.
+We will describe our experiences measuring and tuning our system for performance in the face of interacting threads, concluding that the Haskell language and runtime are excellent tools for real-time applications.
 
 
-
-* P1
-** Introduce the problem domain single-trode
+* Hippocampal place cell ensembles
+** 
 ** High-level overview of the final model
 ** Intuitive, iterative process
 Example of an iteration?
