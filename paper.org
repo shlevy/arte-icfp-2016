@@ -13,8 +13,34 @@ In the course of refactoring our system, we found that STM provided a level of f
 We will describe our experiences measuring and tuning our system for performance in the face of interacting threads, concluding that the Haskell language and runtime are excellent tools for real-time applications.
 
 
-* Hippocampal place cell ensembles
-** 
+* Decoding hippocampal place cell ensembles
+
+Place cells are neurons in the hippocampus that emit brief electrical impulses ("action potentials") specifically when an animal is in a particular location in space [@o1971hippocampus].
+The location of space eliciting action potentials from a place cell is called its *place field*; each place cell has a different place field, and they are typically about half a meter long.
+Recording 10 neurons or so and observing their place fields in the first half of a maze running session, the animal's location can be decoded purely from the place cell activities, simply by inferring that the animal is at the center of the place field of whichever cell is most active, or more formally by performing naive Bayesian classification over all possible track locations given the activity levels of all the place cells [@zhang1998interpreting]. 
+
+More interesting patterns emerge when more place cells are recorded simultaneously; the pooling of more neurons means that the population activity can be sampled over shorter periods of time, effectively increasing the temporal resolution of the position decoding.
+For instance, when an animal reaches the end of a maze and receives a food reward, rather than simply encoding the rat's position at the reward site, the neural decoding traces highly-accelerated paths through the track [@foster2006reverse, @davidson2009hippocampal].
+Similar neural replay events occur during sleep [@lee2002memory].
+Acquiring signals from enough neurons to perform high-resolution position decoding requires the use of many sensors in parallel, and for of signal source separation in order to sort the activity of many neurons reaching a single sensor into their respective neural sources.
+
+We want to be able to perform Bayesian decoding in real-time, so that we may observe these neural activity patterns and immediately reward the rat to encourage one kind of them or another, in order to gain some experimental control over them and assess their impact on behavior.
+
+Implementing a high resolution Bayesian decoder in real-time poses raises interesting challenges, mainly around streaming data into the *encoding* model, streaming in the animal's current position and continually *decoding* from the model using the most recently-acquired action potentials.
+
+#+BEGIN_SRC haskell
+------------------------------------------------------------------------------
+-- | Representation of an action potential recorded on a trode
+data TrodeSpike = TrodeSpike { spikeTrodeName      :: !Int -- ^ Tetrode ID
+                             -- | Time of the spike
+                             , spikeTime           :: !ExperimentTime
+                             -- | The waveforms of each trode channel
+                             , spikeWaveforms      :: V.Vector Waveform
+                             }
+                  deriving (Eq, Show, Typeable)
+#+END_SRC
+
+
 ** High-level overview of the final model
 ** Intuitive, iterative process
 Example of an iteration?
