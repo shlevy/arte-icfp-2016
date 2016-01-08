@@ -1,0 +1,4 @@
+* STM usefulness
+** Refactoring
+*** Splitting out drawing from decoding
+*** Adding clusterless to the clustered case (no more fanout spikes to cells)
